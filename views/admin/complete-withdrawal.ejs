@@ -1,0 +1,78 @@
+<%- include('../partials/dash-header.ejs') %>
+
+<section class="dash-content">
+
+    <h4 class="dash-topic"> <%= pageDescription %> </h4>
+
+    <div class="settings-content mt-5">
+
+        <% if (path === '/withdraw-invest') { %>
+
+        <h5 class="my-3 text-center" style="color: #af682e;">Select Plan to withdraw</h5>
+        <form action="/admin/withdraw-invest/<%= foundUser._id %>" method="post">
+            <% foundUser.investments.forEach(investment => { %>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="plan" value=<%= investment.planName %> id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    <%= investment.planName %> - <span
+                        class="text-secondary"><strong><%= investment.capital + investment.interest %> (capital +
+                            accrued
+                            interests) </strong></span>
+                </label>
+            </div>
+            <% }) %>
+            <div class="text-center">
+                <button type="submit" class="complete-invest-btn btn">Submit Request</button>
+            </div>
+        </form>
+
+        <% } else if (path === '/withdraw-crypto') { %>
+
+        <h5 class="my-3 text-center" style="color: #af682e;">Select wallet to withdraw</h5>
+        <form action="/admin/withdraw-crypto/<%= foundUser._id %>" method="post">
+            <% foundUser.cryptoWallet.forEach(wallet => { %>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="plan" value=<%= wallet.value %>>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    <%= wallet.walletCurrency %> - <span
+                        class="text-secondary"><strong><%= wallet.value + wallet.interest %> (capital + accrued
+                            interests)
+                        </strong></span>
+                </label>
+            </div>
+            <% }) %>
+            <div class="text-center">
+                <button type="submit" class="complete-invest-btn btn">Submit Request</button>
+            </div>
+        </form>
+
+        <% } else { %>
+
+        <h5 class="my-3 text-center" style="color: #af682e;">Select wallet to withdraw</h5>
+        <form action="/admin/withdraw-fiat/<%= foundUser._id %>" method="post">
+            <% foundUser.fiatWallet.forEach(wallet => { %>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="plan" value=<%= wallet.amount %>>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    <%= wallet.walletCurrency %> - <span
+                        class="text-secondary"><strong><%= wallet.amount + wallet.interest %> (capital + accrued
+                            interests)
+                        </strong></span>
+                </label>
+            </div>
+            <% }) %>
+            <div class="text-center">
+                <button type="submit" class="complete-invest-btn btn">Submit Request</button>
+            </div>
+        </form>
+
+        <% } %>
+
+    </div>
+
+</section>
+
+
+
+
+<%- include('../partials/dash-footer.ejs') %>

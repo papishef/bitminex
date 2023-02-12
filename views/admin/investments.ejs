@@ -1,0 +1,69 @@
+<%- include('../partials/dash-header.ejs') %>
+
+<section class="dash-content">
+
+    <h4 class="dash-topic"> <%= pageDescription %> </h4>
+
+<div class="row">
+    
+    <div class="col-12 col-md-6 col-lg-4">
+
+            <div class="dash-box">
+                <h4>All Investments</h4>
+                <% if (foundUser.investments.length > 0) { %>
+                    <ol>
+
+                        <% foundUser.investments.forEach(investment => { %>
+                            <li>
+                                <hr>
+                                PLAN <span class="dash-value">- <%= investment.planName %> </span> <br>
+                                <span class="mb-2 form-text">Capital</span><span class="dash-value">- <%= investment.currency %> <%= investment.capital %> </span> <br>
+                                <span class="mb-2 form-text">Interest Accrued</span> <span class="dash-value">- <%= investment.currency %> <%= investment.interest %> </span> <br>
+                                <span class="mb-2 form-text">Since</span><span class="dash-value">- <%= investment.since.toISOString().slice(0, 10) %> </span>
+                                
+                            </li>
+                        <% }) %>
+   
+                        
+                    </ol>
+                <% } else {%>
+                    
+                    <hr>
+                    <h6 class="my-4 text-secondary">You selected the <%= foundUser.firstPlan %> during registration, click on top up investment to complete.</h6>
+              
+                <% } %> 
+            </div>
+
+
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-4">
+
+        <a href="/products" target="_blank">
+            <div class="dash-box">
+                <h1 class="my-4">View Investment Plans</h1>  
+            </div>
+        </a>
+
+    </div>
+        
+    <div class="col-12 col-md-6 col-lg-4">
+
+        <a href="/admin/complete-investment/<%= foundUser._id %> ">
+            <div class="plus-box">
+                <h4>New Investment</h4>
+                <i class="fa fa-plus-circle fa-6x" aria-hidden="true"></i>
+            </div>
+
+        </a>
+
+    </div>
+</div>
+
+
+</section>
+
+
+
+    
+<%- include('../partials/dash-footer.ejs') %>

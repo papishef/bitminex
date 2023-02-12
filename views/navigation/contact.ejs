@@ -1,0 +1,172 @@
+<%- include('../partials/header.ejs'); %>
+
+<section class="register">
+
+    <div class="container-lg">
+
+        <div class="register-container text-light">
+
+            <% if (messageSent) { %>
+            <h3 class="successful2"><%= messageSent %></h3>
+            <% } else { %>
+            <h1 class="text-center my-5"> <%= pageDescription %> </h1>
+            <% } %>
+
+            <div class="row">
+
+                <div class="col-12 col-md-6">
+
+                    <h2>Contact us</h2>
+                    <hr class="left-hr">
+
+                    <div class="row mb-5 py-3">
+                        <div class="col-2">
+                            <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <h4>ADDRESS</h4>
+                            <p>4996  Polk Street, <br>Tucson, Arizona <br>85714</p>
+                        </div>
+                    </div>
+                    <div class="row mb-5 py-3">
+                        <div class="col-2">
+                            <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <h4>TELEPHONE</h4>
+                            <p>+1 (402) 665 6470</p>
+                        </div>
+                    </div>
+                    <div class="row mb-5 py-3">
+                        <div class="col-2">
+                            <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <h4>EMAIL</h4>
+                            <p>helpdesk@bit-minex.com</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="col-12 col-md-6">
+
+                    <div class="message-wrapper">
+
+                        <h2>Leave a message</h2>
+                        <hr class="left-hr">
+
+                        <form action="/contact" method="post">
+
+                            <div class="form-group mb-3">
+                                <label for="contactName" class="mb-2">Enter Name</label>
+                                <input type="text" class="form-control form-control-lg" id="contactName"
+                                    name="contactName" required>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="contactEmail" class="mb-2">Enter Email</label>
+                                <input type="email" class="form-control form-control-lg" id="contactEmail"
+                                    name="contactEmail" required>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="contactPhone" class=" mb-2">Enter Phone</label>
+                                <input type="text" class="form-control form-control-lg" id="contactPhone"
+                                    name="contactPhone" required>
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <label for="subject" class=" mb-2">Enter Subject</label>
+                                <input type="text" class="form-control form-control-lg" id="subject" name="subject"
+                                    required>
+                            </div>
+
+
+                            <div class="form-group mb-3">
+                                <label for="message" class="mb-2">Enter message</label>
+                                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="register-btn btn">SEND MESSAGE</button>
+                            </div>
+
+                        </form>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="container-lg" id="offices">
+
+        <div class=" mt-5 register-container text-light">
+
+            <h1 class="text-center my-5"> Our Global Offices </h1>
+
+            <div class="row">
+
+                <div class="col-12 col-md-6">
+
+                    <hr class="left-hr">
+
+                    <div class="row mb-5 py-3">
+                        <div class="col-2">
+                            <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <h4>USA Data Center</h4>
+                            <p>4996  Polk Street, <br>Tucson, Arizona <br>85714</p>
+                        </div>
+                    </div>
+                    <div class="row mb-5 py-3">
+                        <div class="col-2">
+                            <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <h4>Russian Data Center</h4>
+                            <p>Добросельская Ул., дом 167/А, кв. 13<br>
+                                Владимир</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-12 col-md-6">
+
+                    <hr class="left-hr">
+
+                    <div class="row mb-5 py-3">
+                        <div class="col-2">
+                            <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <h4>London Data Center</h4>
+                            <p>Oaktree Court, <br>Brookfield Drive, <br>Cannock, WS11 0JN</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+</section>
+
+
+<%- include('../partials/footer.ejs') %>

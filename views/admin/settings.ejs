@@ -1,0 +1,378 @@
+<%- include('../partials/dash-header.ejs') %>
+
+<section class="dash-content">
+
+    <h4 class="dash-topic"> <%= pageDescription %> </h4>
+
+    <div class="settings-content">
+        <div class="on-this-page">
+            <h5>On this page</h5>
+            <a href="#signInData">Edit Sign-in data</a>
+            <a href="#kycData">Edit KYC data</a>
+            <a href="#withdrawalData">Withdrawal data</a>
+            <a href="#paymentData">Payment/Card data</a>
+        </div>
+    </div>
+
+    <div id="signInData" class="settings-content">
+        <% if (successMessage) { %>
+         <h5 class="successful text-center"><%= successMessage %></h5>
+        <% } %>
+        <% if (errorMessage) { %>
+            <h5 class="error text-center"><%= errorMessage %></h5>
+        <% } %>
+        <h5>Sign-in data</h5>
+
+        <form id="changePassword" action="/admin/sign-in/<%= foundUser._id %> " method="post">
+            <div class="row mb-2">
+
+                <div class="col-md-6">
+                    <fieldset disabled="disabled">
+                        <div>
+                            <label for="disabledEmailInput" class="form-label">Email</label>
+                            <input type="email" id="disabledEmailInput" class="form-control"
+                                placeholder="<%= foundUser.email %> ">
+                            <div id="emailHelp" class="form-text">Email address cannot be changed.</div>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+                <div class="col-md-6">
+                    <label for="password" class="form-label">Old password</label>
+                    <div class="input-group">
+                        <input type="password" name="password" class="form-control" id="password">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="row mb-2">
+
+                <div class="col-md-6 mb-2">
+                    <label for="password" class="form-label">New password</label>
+                    <div class="input-group">
+                        <input type="password" name="newPassword" class="form-control" id="newPassword">
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="confirmPassword" class="form-label">Confirm password</label>
+                    <div class="input-group">
+
+                        <input type="password" name="confirmPassword" class="form-control" id="confirmPassword">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="settings-submit-btn-div">
+                <button type="submit" class="settings-submit-btn">Save</button>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+    <div id="kycData" class="settings-content">
+
+        <h5>KYC data</h5>
+
+        <form id="kyc-form" action="/admin/kyc/<%= foundUser._id %> " method="post">
+
+            <div class="row">
+
+                <div class="col-sm-4 col-md-2 mb-2">
+
+                    <div class="form-group">
+                        <label for="title" class="form-label">Title</label>
+
+                        <fieldset disabled="disabled">
+                            <input type="text" class="form-control" id="title" value="<%= foundUser.title %> ">
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <div class="col-md-5 mb-2">
+                    <label for="fName" class="form-label">First name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon6"><i class="fa fa-address-card"
+                                aria-hidden="true"></i></span>
+                        <input type="text" name="fName" class="form-control" id="fName" value="<%= foundUser.firstName %> ">
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-5 mb-2">
+                    <label for="lName" class="form-label">Last name</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon7"><i class="fa fa-address-card"
+                                aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" id="lName" name="lName" value="<%= foundUser.lastName %> ">
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-4 col-md-3 mb-2">
+
+                    <label for="aptNo" class="form-label">Apt/Block/Flat no.</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="aptNo" name="aptNo" value="<%= foundUser.aptNumber %> ">
+
+                    </div>
+
+                </div>
+
+                <div class="col-8 col-md-7 mb-2">
+                    <label for="street" class="form-label">Street & State/Province</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon6"><i class="fa fa-compass"
+                                aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" id="street" name="street" value="<%= foundUser.streetStateProvince %>" >
+
+                    </div>
+
+                </div>
+
+                <div class="col-4 col-md-2 mb-2">
+
+                    <div class="form-group">
+                        <label for="zip" class="form-label">Zip code</label>
+                        <input type="text" class="form-control" id="zip" name="zip" value="<%= foundUser.zipCode %> ">
+
+                    </div>
+
+                </div>
+
+                <div class="col-8 col-md-6 mb-2">
+                    <label for="phone" class="form-label">Phone</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon6"><i class="fa fa-phone"
+                                aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" id="phone" name="phone" value="<%= foundUser.phone %> ">
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-12 col-md-6 mb-2">
+                    <fieldset disabled="disabled">
+
+                        <label for="country" class="form-label">Country</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="country" name="country" value="<%= foundUser.country %> ">
+                        </div>
+
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-12 col-md-6 mb-2">
+                    <label for="occupation" class="form-label">Occupation</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon6"><i class="fa fa-briefcase"
+                                aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" id="occupation" name="occupation" value="<%= foundUser.occupation %> ">
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 my-3">
+
+                    <div class="settings-submit-btn-div">
+                        <button type="submit" class="settings-submit-btn">Save</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </form>
+    </div>
+
+
+    <div id="withdrawalData" class="settings-content">
+
+        <h5>Withdrawal data</h5>
+
+        <form id="withdrawal" action="/admin/withdrawal/<%= foundUser._id %> " method="post">
+
+            <div class="row">
+
+
+                <div class="col-md-6 mb-2">
+                    <label for="bankName" class="form-label">Bank name</label>
+                    <div class="input-group">
+                        <input type="text" name="bankName" class="form-control" id="bankName" value="<%= foundUser.withdrawalData.bankName %>">
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="accountName" class="form-label">Name on account</label>
+                    <div class="input-group">
+
+                        <input type="text" name="accountName" class="form-control" id="accountName" value="<%= foundUser.withdrawalData.accountName %>" >
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+
+                <div class="col-md-6 mb-2">
+                    <label for="accountNumber" class="form-label">Account number</label>
+                    <div class="input-group">
+                        <input type="number" name="accountNumber" class="form-control" id="accountNumber" value="<%= foundUser.withdrawalData.accountNumber %>" >
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="swiftIban" class="form-label">Swift/IBAN no.</label>
+                    <div class="input-group">
+
+                        <input type="text" name="swiftIban" class="form-control" id="swiftIban" value="<%= foundUser.withdrawalData.swiftIban %>" >
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 mb-2">
+                    <label for="bankAddress" class="form-label">Bank address</label>
+                    <div class="input-group">
+
+                        <input type="text" name="bankAddress" class="form-control" id="bankAddress" value="<%= foundUser.withdrawalData.bankAddress %>" >
+                    </div>
+
+                </div>
+
+
+                <div class="col-12 col-md-6 my-3">
+
+                    <div class="settings-submit-btn-div">
+                        <button type="submit" class="settings-submit-btn">Save</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <div id="paymentData" class="settings-content">
+
+        <h5>Payment/Card data</h5>
+
+        <form id="card-form" action="/admin/card/<%= foundUser._id %> " method="post">
+
+            <div class="row">
+
+
+                <div class="col-md-6 mb-2">
+                    <label for="cardNumber" class="form-label">Card number</label>
+                    <div class="input-group">
+                        <input type="number" name="cardNumber" class="form-control" id="cardNumber" placeholder=<%= (foundUser.cardData.cardNumber) ? "***********" + (foundUser.cardData.cardNumber).toString().slice(12, 17) : ''%>>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="cardName" class="form-label">Name on card</label>
+                    <div class="input-group">
+
+                        <input type="text" name="cardName" class="form-control" id="cardName" value="<%= foundUser.cardData.cardName %> ">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-3 mb-2">
+                    <label for="cvv" class="form-label">CVV</label>
+                    <div class="input-group">
+                        <input type="password" id="cvv" name="cvv" class="form-control" value="<%= foundUser.cardData.cvv %> ">
+                    </div>
+
+                </div>
+
+                <div class="col-6 col-md-3 mb-2">
+                    <label for="cardExpiry" class="form-label">Expiry date</label>
+                    <div class="input-group">
+                        <input type="date" id="cardExpiry" name="cardExpiry" class="form-control"
+                            min="2021-01-01" max="2026-01-01" value="">
+                    </div>
+
+                </div>
+
+                
+                <div class="col-md-6 mb-2">
+                    <label for="cardPhoneNumber" class="form-label">Phone number</label>
+                    <div class="input-group">
+                        <input type="number" name="cardPhoneNumber" class="form-control" id="cardPhoneNumber" value=<%= foundUser.cardData.phone %>>
+                    </div>
+
+                </div>
+
+                <div class="col-6 col-md-3 mb-2">
+                    <label for="cardZip" class="form-label">Zip/Postal code</label>
+                    <div class="input-group">
+                        <input type="text" id="cardZip" name="cardZip" class="form-control" value="<%= foundUser.cardData.zipCode %> ">
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="cardAddress" class="form-label">Address</label>
+                    <div class="input-group">
+
+                        <input type="text" name="cardAddress" class="form-control" id="cardAddress" value="<%= foundUser.cardData.address %> ">
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-12 col-md-3 my-3">
+
+                    <div class="settings-submit-btn-div">
+                        <button type="submit" class="settings-submit-btn">Save</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+</section>
+
+
+
+
+<%- include('../partials/dash-footer.ejs') %>

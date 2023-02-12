@@ -1,0 +1,104 @@
+<%- include('../partials/dash-header.ejs') %>
+
+<section class="dash-content">
+
+    <h4 class="dash-topic"> <%= pageDescription %> </h4>
+
+    <div class="row">
+
+        <div class="col-12 col-md-6 col-lg-4">
+
+            <div class="dash-box">
+                <h4>Multi-Crypto Wallet</h4>
+                <% if (foundUser.cryptoWallet.length > 0) { %>
+                <ol>
+
+                    <% foundUser.cryptoWallet.forEach(wallet => { %>
+
+                    <li>
+                        <hr>
+                        <%= wallet.coin %> <span class="dash-value">- <%= wallet.walletCurrency %><%= wallet.amount %> <span class="mb-2 form-text">(Initial Cap.)</span>
+                        </span> <br>
+                        <span class="mb-2 form-text">Value</span><span class="dash-value">- <%= wallet.value %> </span>
+                        <br>
+                        <span class="mb-2 form-text">Interest Accrued</span> <span class="dash-value">-
+                            <%= wallet.interest %> </span> <br>
+                        <span class="mb-2 form-text">Since</span><span class="dash-value">-
+                            <%= wallet.since.toISOString().slice(0, 16) %> </span>
+
+                    </li>
+
+                    <% }) %>
+
+
+                </ol>
+                <% } else {%>
+                <hr>
+                <h1 class="my-4">$0</h1>
+                <% } %>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="dash-box">
+                <h4>Fiat Wallet</h4>
+                <% if (foundUser.fiatWallet.length > 0) { %>
+                <ol>
+
+                    <% foundUser.fiatWallet.forEach(wallet => { %>
+                    <li>
+                        <hr>
+                        <%= wallet.walletCurrency %> <span class="dash-value">- <%= wallet.amount %> </span> <br>
+                        <span class="mb-2 form-text">Interest Accrued</span> <span class="dash-value">-
+                            <%= wallet.interest %> </span> <br>
+                        <span class="mb-2 form-text">Since</span><span class="dash-value">-
+                            <%= wallet.since.toISOString().slice(0, 16) %> </span>
+
+                    </li>
+
+                    <% }) %>
+
+                </ol>
+
+                <% } else {%>
+
+                <hr>
+                <h1 class="my-4">$0</h1>
+
+                <% } %>
+            </div>
+        </div>
+
+
+
+        <div class="col-12 col-md-6 col-lg-4">
+            <a href="/admin/complete-wallet/<%= foundUser._id %> ">
+                <div class="plus-box">
+                    <h4>Crypto Top-up </h4>
+                    <i class="fa fa-plus-circle fa-6x" aria-hidden="true"></i>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="col-12 col-md-6 col-lg-4">
+            <a href="/admin/complete-fiat/<%= foundUser._id %> ">
+                <div class="plus-box">
+                    <h4>Fiat Top-up </h4>
+                    <i class="fa fa-plus-circle fa-6x" aria-hidden="true"></i>
+                </div>
+
+            </a>
+        </div>
+
+
+    </div>
+
+
+
+</section>
+
+<%- include('../partials/dash-footer.ejs') %>

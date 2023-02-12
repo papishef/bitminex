@@ -1,0 +1,38 @@
+<%- include('../partials/dash-header.ejs') %>
+
+<section class="dash-content">
+
+    <h4 class="dash-topic"> <%= pageDescription %> </h4>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Activity</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Action</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <% if (foundUser.activities.length > 0) { %>
+                <% foundUser.activities.forEach(activity => { %>
+                    <tr class=<%= activity.action === 'deposit' ? "action-deposit" : "action-withdraw"  %> >
+                        <th scope="row"><%= activity.name %> </th>
+                        <td><%= activity.currency %> <%= activity.amount %> </td>
+                        <td><%= activity.action %> </td>
+                        <td><%= activity.date.toISOString().slice(0, 16) %></td>
+                    </tr>
+                <% }) %>
+
+            <% } %>
+           
+        </tbody>
+    </table>
+
+</section>
+
+
+
+<%- include('../partials/dash-footer.ejs') %>

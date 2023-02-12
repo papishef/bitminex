@@ -1,0 +1,196 @@
+<%- include('../partials/dash-header.ejs') %>
+
+
+
+<section class="dash-content">
+    <h4 class="dash-topic"> <%= pageDescription %> </h4>
+
+    <div class="row">
+
+        <div class="col-12 col-md-6 col-lg-4">
+
+            <a href="/admin/investments/<%= foundUser._id %>">
+                <div class="dash-box">
+                    <h4>All Investments</h4>
+                    <% if (foundUser.investments.length > 0) { %>
+
+                    <ol>
+                        <% foundUser.investments.forEach(investment => { %>
+                        <li>
+                            <hr>
+                            PLAN <span class="dash-value">- <%= investment.planName %> </span>
+
+                        </li>
+                        <% }) %>
+                    </ol>
+
+                    <% } else {%>
+
+                    <hr>
+                    <h5 class="my-4 text-secondary">You selected the <%= foundUser.firstPlan %> during registration,
+                        click on top up investment to complete.</h5>
+
+                    <% } %>
+
+                </div>
+
+
+            </a>
+
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+
+            <a href="/admin/wallets/<%= foundUser._id %>">
+                <div class="dash-box">
+                    <h4>All Wallets</h4>
+
+                    <% if (foundUser.cryptoWallet.length > 0 && foundUser.fiatWallet.length > 0) { %>
+
+                    <hr>
+                    <span class="text-light">Crypto Wallet</span><span class="dash-value"> -
+                        <% foundUser.cryptoWallet.forEach(wallet => { %>
+                        <%- wallet.value + wallet.interest %>
+                        <% }) %> </span>
+
+                    <hr>
+                    <span class="text-light">Fiat Wallet</span><span class="dash-value"> -
+                        <% foundUser.fiatWallet.forEach(wallet => { %>
+                        <%= wallet.amount + wallet.interest %>
+                        <% }) %> </span>
+
+                    <% } else if (foundUser.cryptoWallet.length > 0 && foundUser.fiatWallet.length <= 0) { %>
+
+                    <hr>
+                    <span class="text-light">Crypto Wallet</span><span class="dash-value"> -
+                        <% foundUser.cryptoWallet.forEach(wallet => { %>
+                        <%- wallet.value + wallet.interest %>
+                        <% }) %> </span>
+                    <hr>
+
+                    <% } else if (foundUser.cryptoWallet.length <= 0 && foundUser.fiatWallet.length > 0) { %>
+
+                    <hr>
+                    <span class="text-light">Fiat Wallet</span><span class="dash-value"> -
+                        <% foundUser.fiatWallet.forEach(wallet => { %>
+                        <%= wallet.amount + wallet.interest %>
+                        <% }) %> </span>
+                    <hr>
+
+                    <% } else { %>
+
+                    <hr>
+                    <h1 class="my-4"> 0 </h1>
+                    <hr>
+
+                    <% } %>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <div class="col-12 col-md-6 col-lg-4">
+
+            <a href="">
+                <div class="dash-box">
+                    <h4>Referrals & Bonus Points</h4>
+
+                    <% if (foundUser.referrals.length > 0) { %>
+                    <ol>
+                        <% foundUser.referrals.forEach(referral => { %>
+                        <li>
+                            <hr>
+                            <span class="mb-2 form-text"><%= referral.refName %> </span> <span class="dash-value">-
+                                <%= referral.refBonus %> </span> <br>
+                        </li>
+                        <% }) %>
+                    </ol>
+                    <% } else {%>
+                    <hr>
+                    <h6 class="my-4 text-danger">Get 20% on referrals as soon as they deposit. If they register but
+                        haven't deposited, bonus amount will be 0</h6>
+                    <hr>
+                    <% } %>
+
+                </div>
+
+
+            </a>
+
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+
+            <a href="/admin/complete-investment/<%= foundUser._id %>">
+                <div class="plus-box">
+                    <h4>Top-up Investment</h4>
+                    <i class="fa fa-plus-circle fa-6x" aria-hidden="true"></i>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <div class="col-12 col-md-6 col-lg-4">
+
+            <a href="/admin/wallets/<%= foundUser._id %>">
+                <div class="plus-box">
+                    <h4>Wallet Top-up </h4>
+                    <i class="fa fa-plus-circle fa-6x" aria-hidden="true"></i>
+                </div>
+
+            </a>
+
+        </div>
+
+        <div id="withdraw" class="col-12 col-md-6 col-lg-4">
+
+
+            <div class="plus-box">
+                <h4>Withdraw Funds</h4>
+                <i class="fa fa-university fa-6x" aria-hidden="true"></i>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+<section id="withdrawal-pop-up" class="withdrawal-pop-up">
+
+    <div id="close" class="close">
+        <i class="far fa-2x fa-times-circle text-light"></i>
+    </div>
+
+    <div class="widthdrawal-inner">
+
+        <h5 class="my-3" style="color: #af682e;">Hi <%= foundUser.firstName %>, What do you want to withdraw?</h5>
+
+        <ul>
+
+            <a href="/admin/withdraw-investment/<%= foundUser._id %>">
+                <li>Withdraw Investment Funds and Interests</li>
+            </a>
+
+            <a href="/admin/withdraw-crypto/<%= foundUser._id %>">
+                <li>Withdraw from Crypto Wallet</li>
+            </a>
+
+            <a href="/admin/withdraw-fiat/<%= foundUser._id %>">
+                <li>Withdraw from Fiat Wallet</li>
+            </a>
+        </ul>
+
+    </div>
+
+</section>
+
+<%- include('../partials/dash-footer.ejs') %>

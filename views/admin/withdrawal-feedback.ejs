@@ -1,0 +1,31 @@
+<%- include('../partials/dash-header.ejs') %>
+
+<section class="dash-content">
+
+    <h4 class="dash-topic"> Server Response </h4>
+
+
+    <div class="settings-content">
+        <% if (successMessage) { %>
+        <h5 class="successful text-center"><%= successMessage %></h5>
+
+        <p class="text-center"><a  style="color: #af682e;" href="/admin/user/<%= foundUser._id %>">< < < Return to Dashboard</a></p>
+        <% } %>
+        <% if (errorMessage) { %>
+        <h5 class="error text-center"><%= errorMessage %></h5>
+        
+        <p class="text-center"><a style="color: #af682e;" href="/admin/<%= tryAgainPath %> /<%= foundUser._id %>">< < < Try again</a></p>
+        <% } %>
+
+    
+        
+        <div class="text-danger mt-3">
+            Kindly await credit through the same method in which you invested. If withdrawal is not processed in 24 hours on a weekday, kindly email us on helpdesk@bit-minex.com with your registered email to get status and reason for delay.
+        </div>
+    </div>
+
+
+</section>
+
+
+<%- include('../partials/dash-footer.ejs') %>

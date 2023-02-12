@@ -1,0 +1,824 @@
+<%- include ('../partials/header'); %>
+
+<section id="top-wrapper" class="container-fluid p-0">
+    
+    <img src="\images\wrapper-img-1.jpg" alt="" width="100%" height="500px" class="m-0">
+    <div class="wrapper-text">
+        <div class="row">
+            <div class="col-md-7 col-sm-12 px-md-3 ml-5">
+                <h2>Invest & Trade on the most anticipated CFDs, Earn from Crypto Mining...</h2>
+                <h6>You Invest, We Trade & Mine, You Gain</h6>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img src="\images\trust.png" alt="Trust Score" width="100%">
+                    </div>
+                    <div class="col-sm-3 pt-md-2">
+                        Trustpilot
+                    </div>
+                </div>
+
+                <a href="/products" class="btn call-act mt-5">
+                    <h5>I'm In</h5>
+                </a>
+            </div>
+
+            <div class="col-md-4 secure text-center">
+                <img src="\images\bitmage.png" style="width: 100%; z-index: 200" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="live-prices">
+        <marquee loop="infinite" direction="left">
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= btcLogo %> alt="BTC-USD"> BTC/USD <%= btcPrice %> <span
+                    class=<%= btcPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= btcPriceChangePct %>%</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= ethLogo %> alt="ETH-USD"> ETH/USD <%= ethPrice %> <span
+                    class=<%= ethPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= ethPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                 GBP/USD <%= gbp_usd.rate %> 
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= xrpLogo %> alt="XRP-USD"> XRP/USD <%= xrpPrice %> <span
+                    class=<%= xrpPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= xrpPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= bchLogo %> alt="BCH-USD"> BCH/USD <%= bchPrice %> <span
+                    class=<%= bchPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= bchPriceChangePct %>%</span>
+            </span>
+
+            
+            <span class="mx-5">
+                EUR/GBP <%= eur_gbp.rate %> 
+           </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= ltcLogo %> alt="LTC-USD"> LTC/USD <%= ltcPrice %> <span
+                    class=<%= ltcPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= ltcPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= usdtLogo %> alt="USDT-USD"> USDT/USD <%= usdtPrice %> <span
+                    class=<%= usdtPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= usdtPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                USD/CHF <%= usd_chf.rate %> 
+           </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= bnbLogo %> alt="BNB-USD"> BNB/USD <%= bnbPrice %> <span
+                    class=<%= bnbPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= bnbPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= xlmLogo %> alt="XLM-USD"> XLM/USD <%= xlmPrice %> <span
+                    class=<%= xlmPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= xlmPriceChangePct %>%</span>
+            </span>
+
+            
+            <span class="mx-5">
+                USD/JPY <%= usd_jpy.rate %> 
+           </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= xmrLogo %> alt="XMR-USD"> XMR/USD <%= xmrPrice %> <span
+                    class=<%= xmrPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= xmrPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= trxLogo %> alt="TRX-USD"> TRX/USD <%= trxPrice %> <span
+                    class=<%= trxPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= trxPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                EUR/USD <%= eur_usd.rate %> 
+           </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= btcLogo %> alt="BTC-USD"> BTC/USD <%= btcPrice %> <span
+                    class=<%= btcPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= btcPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= ethLogo %> alt="ETH-USD"> ETH/USD <%= ethPrice %> <span
+                    class=<%= ethPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= ethPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= xrpLogo %> alt="XRP-USD"> XRP/USD <%= xrpPrice %> <span
+                    class=<%= xrpPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= xrpPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= bchLogo %> alt="BCH-USD"> BCH/USD <%= bchPrice %> <span
+                    class=<%= bchPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= bchPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= ltcLogo %> alt="LTC-USD"> LTC/USD <%= ltcPrice %> <span
+                    class=<%= ltcPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= ltcPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= usdtLogo %> alt="USDT-USD"> USDT/USD <%= usdtPrice %> <span
+                    class=<%= usdtPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= usdtPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= bnbLogo %> alt="BNB-USD"> BNB/USD <%= bnbPrice %> <span
+                    class=<%= bnbPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= bnbPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= xlmLogo %> alt="XLM-USD"> XLM/USD <%= xlmPrice %> <span
+                    class=<%= xlmPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= xlmPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= xmrLogo %> alt="XMR-USD"> XMR/USD <%= xmrPrice %> <span
+                    class=<%= xmrPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= xmrPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= trxLogo %> alt="TRX-USD"> TRX/USD <%= trxPrice %> <span
+                    class=<%= trxPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= trxPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= btcLogo %> alt="BTC-USD"> BTC/USD <%= btcPrice %> <span
+                    class=<%= btcPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= btcPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= ethLogo %> alt="ETH-USD"> ETH/USD <%= ethPrice %> <span
+                    class=<%= ethPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= ethPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= xrpLogo %> alt="XRP-USD"> XRP/USD <%= xrpPrice %> <span
+                    class=<%= xrpPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= xrpPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= bchLogo %> alt="BCH-USD"> BCH/USD <%= bchPrice %> <span
+                    class=<%= bchPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= bchPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= ltcLogo %> alt="LTC-USD"> LTC/USD <%= ltcPrice %> <span
+                    class=<%= ltcPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= ltcPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= usdtLogo %> alt="USDT-USD"> USDT/USD <%= usdtPrice %> <span
+                    class=<%= usdtPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= usdtPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= bnbLogo %> alt="BNB-USD"> BNB/USD <%= bnbPrice %> <span
+                    class=<%= bnbPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= bnbPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= xlmLogo %> alt="XLM-USD"> XLM/USD <%= xlmPrice %> <span
+                    class=<%= xlmPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= xlmPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= xmrLogo %> alt="XMR-USD"> XMR/USD <%= xmrPrice %> <span
+                    class=<%= xmrPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= xmrPriceChangePct %>%</span>
+            </span>
+
+            <span class="mx-5">
+                <img class="currency-img" src=<%= trxLogo %> alt="TRX-USD"> TRX/USD <%= trxPrice %> <span
+                    class=<%= trxPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                    <%= trxPriceChangePct %>%</span>
+            </span>
+
+        </marquee>
+    </div>
+
+</section>
+
+<section id="cookies-wrapper" class="cookies-wrapper">
+        By using the bit-minex.com website you agree to the use of <a href="/cookies" class="more" style="margin-right: 7px;">cookies</a>
+        <span id="cookie-close"><i class="fas fa-times"></i></span>
+</section>
+
+<%- include('../partials/hidden-sections'); %>
+
+
+
+<section id="about-us" class="pastel mt-5 p-5">
+    <div class="container text-center">
+        <h4>About BitMinex</h4>
+        <p class="my-4">We are a world-leading online investment provider, giving you access to opportunities,
+            cryptocurrencies, forex, stocks and commodities across thousands of financial markets, without having to
+            break a sweat or any prior trading knowledge.</p>
+
+        <div class="row">
+            <div class="col-md-5">
+                <video width="100%" controls>
+                    <source src="\clips\about-bitminex.mp4" type="video/mp4">
+                    <source src="\clips\about-bitminex.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                </video>
+                <!-- <img src="\images\about2.jpg" alt="ABOUT US" width="100%" style="border-radius: 5px;"> -->
+            </div>
+
+            <div class="col-md-7 mt-sm-3">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Who we are
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Want to invest in the financial markets? You’ve come to the right place. We enable
+                                    thousands of investors to seize their opportunity on cryptocurrency, indices, forex,
+                                    shares and more using CFDs while we do the heavy lifting.</p>
+                                <p>Established in 1996, we have helped over <strong
+                                        style="color: #af682e;">183,000</strong> clients (individuals and companies)
+                                    worldwide, across <strong style="color: #af682e;">17,000</strong> markets. we are
+                                    invested in your success
+                                    and we want our clients to stay with us. So we’ve built our business around being on
+                                    your side, and wanting you to trade profitably.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                What we do with your money
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Unlike banks, investment firms like BitMinex are required to separate client money
+                                    and assets from their own resources. This means that we’re not allowed to use them
+                                    in the course of our business activities, and that client money is completely
+                                    ring-fenced and protected in the unlikely event that BitMinex became insolvent.</p>
+                                <p>BitMinex is authorised to conduct investment business by the FSCS. The FSCS requires
+                                    the firms they supervise to hold client funds in accounts separate to their own.</p>
+                                <P>The only clients whose money is not treated like this are clients we have classified
+                                    as sophisticated persons who have signed a legal document explaining how their money
+                                    and assets are held differently (this is known as '<strong
+                                        style="color: #af682e;">title transfer</strong>').</P>
+                                <p>Your money is held in segregated bank accounts under trustee arrangements. This
+                                    ensures that the cash remains yours, rather than BitMinex’s. It also means that it’s
+                                    easily identifiable as client money, so BitMinex and its creditors don’t have any
+                                    charge, liens, or rights of set-off or retention over it.</p>
+                                <p>We have a number of segregated bank accounts at a range of credit-worthy high street
+                                    banks such as HSBC, Devitt Royal. We intentionally ensure that client money is split
+                                    between a number of banks, and we’re not permitted to hold it all in one place.</p>
+                                <p>We may place funds in notice or term deposit accounts with a notice period or term of
+                                    up to 95 days. Placing client money in notice or term deposit accounts does not in
+                                    itself affect your ability to deal with or withdraw funds from your account with us,
+                                    however, in the unlikely event of insolvency of BitMinex, such amounts may not be
+                                    immediately available upon request.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                How we support you
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Your success is important to us. So we’re on hand to help you achieve your investment
+                                    goals, right from the moment you join.</p>
+                                <p>Personal service to ensure that you’re comfortable with our products during your
+                                    initial time investing with us, we have a dedicated team on hand to offer one-to-one
+                                    guidance.</p>
+                                <p>Friendly, expert team to give continued support for your investment and platform use
+                                    as and when you need it from our large, highly skilled trading services team.</p>
+                                <p>Get hold of us on phone, email or live chat. We’re available 24 hours a day from 8am
+                                    Saturday to 10pm Friday (GMT).</p>
+                                <p>Never waste a moment. Get instant answers to your questions about investing with us,
+                                    using our help and support site. Search for specifics from our huge data bank, or
+                                    browse a range of topics.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                How BitMinex make money
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>We make our money primarily through our spreads, with other fees making up a small
+                                    proportion of our revenue. We aim to build lasting relationships with our clients,
+                                    and provide a range of tools to support their investment.</p>
+                                <p>The costs of any given trade are factored into these two prices (known as the <strong
+                                        style="color: #af682e;">offer</strong> and the <strong
+                                        style="color: #af682e;">bid</strong>), so you will always buy slightly higher
+                                    than the market price, and sell slightly below it.</p>
+                                <p>If the FTSE 100 is trading at 6545.5 and has a one point spread, for example, it
+                                    might have an offer price of 6546 and a bid price of 6545.</p>
+                                <p>We've invested heavily in tools to help our clients trade profitably</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Does BitMinex aim to profit from client losses?
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>No. Our business model is based on providing individuals with the opportunity to
+                                    trade the world’s financial markets, in exchange for fair and proportionate
+                                    transaction fees. It is a well-known fact that trading successfully is difficult,
+                                    and most speculative traders tend to lose. However, we do not typically benefit from
+                                    trading losses that an unsuccessful client may experience.</p>
+                                <p>Sometimes, a large majority of clients will trade in one direction. When this
+                                    happens, we will protect our exposure to risk by hedging in the underlying market.
+                                    For example, if client A and client B buy the DAX, we may buy actual DAX futures.
+                                    This then covers the amount we will pay out if both clients are successful.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Contact BitMinex Support
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Never waste a moment. Get instant answers to your questions about investing with us,
+                                    using our help and support site.</p>
+                                <p>Call: +1 917 563 4917</p>
+                                <p>Email: helpdesk@bit-minex.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section id="learn-to-invest" class="container-fluid text-center">
+    <div class="container-xl py-5">
+        <h4>How to Invest with BitMinex</h4>
+        <p class="my-4">We have carefully devised a series of linear steps to help you invest in what would have
+            ordinarily been a complex market, laddened with risks. This to ensure consistent gain while our team of
+            professionals in the market and data centers do the rest of the magic. <a href="/products" class="more">Learn
+                more</a></p>
+
+
+        <div class="learn-to-invest-cards">
+            <h5 class="more my-3">Invest in 3 easy steps...</h5>
+            <div class="row">
+                <div class="col-lg-4  col-md-6 my-sm-3">
+                    <div class="card">
+                        <div style="margin: 5px">
+                            <p style="border: 2px solid #af682e; width: 40px; color:#af682e; font-size: 2rem; padding: 10px; border-radius: 20px">
+                                1</p>
+                        </div>
+                        <i class="fa fa-balance-scale fa-6x" aria-hidden="true"></i>
+                        <div class="card-body">
+                            <h5 class="card-title">Select a suitable investment plan</h5>
+                            <p class="card-text my-4">Select any of the investment plans you wish to begin with. <br>
+                                You
+                                can always further Invest under any of the Plans from your account when you
+                                have signed up.</p>
+                more</a></p>
+                            <a href="/products" class="more">View plans</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4  col-md-6 my-sm-3">
+                    <div class="card">
+                        <div style="margin: 5px">
+                            <p
+                                style="border: 2px solid #af682e; width: 40px; color:#af682e; font-size: 2rem; padding: 10px; border-radius: 20px">
+                                2</p>
+                        </div>
+                        <i class="fa fa-user-circle fa-6x" aria-hidden="true"></i>
+                        <div class="card-body">
+                            <h5 class="card-title">Sign up for an Investment Account</h5>
+                            <p class="card-text my-4">Haven selected an Investment Plan, Next is to choose how much you
+                                wish to
+                                invest, how you wish to fund it and preferred ROI model; then fill out a very simple
+                                form to sign up for an Investment Account.</p>
+
+                            <a href="/auth/register" class="more">Sign up</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4  col-md-6 my-sm-3">
+                    <div class="card">
+                        <div style="margin: 5px">
+                            <p
+                                style="border: 2px solid #af682e; width: 40px; color:#af682e; font-size: 2rem; padding: 10px; border-radius: 20px">
+                                3</p>
+                        </div>
+                        <i class="fa fa-money fa-6x" aria-hidden="true"></i>
+                        <div class="card-body">
+                            <h5 class="card-title">Fund your New Investment</h5>
+                            <p class="card-text my-4">Finally, You must fund your Investment (within a maximum of 5
+                                working days to avoid account termination), through any of the available mediums,
+                                mostly Digital Currencies (BTC, ETH, LTC, etc.) for ease of global payment when funding
+                                investments and when receiving your payouts.</p>
+                            <a href="/contact" class="more">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h5 class="more my-3">...and allow our experts do these...</h5>
+
+            <div class="row">
+                <div class="col-lg-4  col-md-6 my-sm-3">
+                    <div class="card">
+                        <div style="margin: 5px">
+                            <p
+                                style="border: 2px solid #af682e; width: 40px; color:#af682e; font-size: 2rem; padding: 10px; border-radius: 20px">
+                                4</p>
+                        </div>
+                        <i class="fa fa-sitemap fa-6x" aria-hidden="true"></i>
+                        <div class="card-body">
+                            <h5 class="card-title">Trade and Invest strategically for you</h5>
+                            <p class="card-text my-4">Our Expert Traders and Investors then take it from here.
+                                Leveraging their experience and expertise, your funds are strategically put into our
+                                portfolio trading and investments based on your chosen plan.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4  col-md-6 my-sm-3">
+                    <div class="card">
+                        <div style="margin: 5px">
+                            <p
+                                style="border: 2px solid #af682e; width: 40px; color:#af682e; font-size: 2rem; padding: 10px; border-radius: 20px">
+                                5</p>
+                        </div>
+                        <i class="fa fa-suitcase fa-6x" aria-hidden="true"></i>
+                        <div class="card-body">
+                            <h5 class="card-title">Your Account receives interests</h5>
+                            <p class="card-text my-4">Your Investment Account receives interests daily, weekends or
+                                month-ends, depending on the ROI Model that is associated with the plan you opted for.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4  col-md-6 my-sm-3">
+                    <div class="card">
+                        <div style="margin: 5px">
+                            <p
+                                style="border: 2px solid #af682e; width: 40px; color:#af682e; font-size: 2rem; padding: 10px; border-radius: 20px">
+                                6</p>
+                        </div>
+                        <i class="fa fa-handshake-o fa-6x" aria-hidden="true"></i>
+                        <div class="card-body">
+                            <h5 class="card-title">You can Request Payout or Re-invest</h5>
+                            <p class="card-text my-4">
+                                At maturity date, you can request your earned interests (ROI) for payout directly into
+                                your
+                                provided Account or Digital Wallet (for ease of global payment). You may also put them
+                                back at work by re-investment.
+                                You may choose to end any investment and request your capital back.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<div class="good-invest container-fluid">
+    <div class="row">
+        <div class="col-md-9">
+            <h2>Hey! Why not make a good investment today?</h2>
+        </div>
+        <div class="col-md-3 text-md-start">
+            <a href="/auth/register" class="btn call-act2">
+                <h5>Sure, Show me!</h5>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<section id="plans" class="container-fluid plans">
+    <h4>BitMinex Investment Plans and Portfolios</h4>
+    <p class="my-4">Our investment portfolio are uniquely diversified to meet a wide range of client investments and
+        trading needs... You first, Always.</p>
+    <h5 class="more my-3">CRYPTOCURRENCY MINING PLANS</h5>
+
+    <div class="row mb-4">
+        <div class="col-lg-4">
+            <div class="plan-item">
+                <div class="plan-name my-0">Lite-Miner Plan</div>
+                <ul>
+                    <li>Minimum Investment: $300</li>
+                    <li>Maximum Investment: $5,000</li>
+                    <li>Return on Investment: 10% Weekly</li>
+                    <li>Contract Duration: 24 Months (2 Years)</li>
+                    <li>Referral Commission: 5% on referred users' first deposits and 1.5% on subsequent.</li>
+                    <li class="mb-3">Maintenance Fees: One time 2% of capital</li>
+                    <a class="call-act2 pb-2" href="/auth/register?plans=LITE-MINER PLAN">GET STARTED</a>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="plan-item">
+                <div class="plan-name my-0">Standard-Miner Plan</div>
+                <ul>
+                    <li>Minimum Investment: $5,500</li>
+                    <li>Maximum Investment: $15,000</li>
+                    <li>Return on Investment: 15% Weekly</li>
+                    <li>Contract Duration: 12 Months (1 Year)</li>
+                    <li>Referral Commission: 5% on referred users' first deposits and 1.5% on subsequent.</li>
+                    <li class="mb-3">Maintenance Fees: One time 2% of capital</li>
+                    <a class="call-act2 pb-2" href="/auth/register?plans=STANDARD-MINER PLAN">GET STARTED</a>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="plan-item">
+                <div class="plan-name my-0">Premium-Miner Plan</div>
+                <ul>
+                    <li>Minimum Investment: $16,000</li>
+                    <li>Maximum Investment: $50,000</li>
+                    <li>Return on Investment: 25% Weekly</li>
+                    <li>Contract Duration: 24 Months (2 Years)</li>
+                    <li>Referral Commission: 5% on referred users' first deposits and 1.5% on subsequent.</li>
+                    <li class="mb-3">Maintenance Fees: One time 2% of capital</li>
+                    <a class="call-act2 pb-2" href="/auth/register?plans=PREMIUM-MINER PLAN">GET STARTED</a>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <h5 class="more my-3">FOREX-CFD PLANS</h5>
+
+    <div class="row mb-4">
+        <div class="col-lg-4">
+            <div class="plan-item">
+                <div class="plan-name my-0">Beginner FOREX-CFD Plan</div>
+                <ul>
+                    <li>Minimum Investment: $100</li>
+                    <li>Maximum Investment: $1,000</li>
+                    <li>Return on Investment: 1.2% Daily</li>
+                    <li>Contract Duration: 24 Weeks</li>
+                    <li>Referral Commission: 5% on referred users' first deposits and 1.5% on subsequent.</li>
+                    <li class="mb-3">Maintenance Fees: One time 2% of capital</li>
+                    <a class="call-act2 pb-2" href="/auth/register?plans=BEGINNER FOREX-CFD PLAN">GET STARTED</a>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="plan-item">
+                <div class="plan-name my-0">Advanced FOREX-CFD Plan</div>
+                <ul>
+                    <li>Minimum Investment: $1,500</li>
+                    <li>Maximum Investment: $19,000</li>
+                    <li>Return on Investment: 2.5% Daily</li>
+                    <li>Contract Duration: 12 Months (1 Year)</li>
+                    <li>Referral Commission: 5% on referred users' first deposits and 1.5% on subsequent.</li>
+                    <li class="mb-3">Maintenance Fees: One time 2% of capital</li>
+                    <a class="call-act2 pb-2" href="/auth/register?plans=ADVANCED FOREX-CFD PLAN">GET STARTED</a>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="plan-item">
+                <div class="plan-name my-0">Elite FOREX-CFD Plan</div>
+                <ul>
+                    <li>Minimum Investment: $20,000</li>
+                    <li>Maximum Investment: $100,000</li>
+                    <li>Return on Investment: 3.5% Daily</li>
+                    <li>Contract Duration: 12 Months (1 Year)</li>
+                    <li>Referral Commission: 5% on referred users' first deposits and 1.5% on subsequent.</li>
+                    <li class="mb-3">Maintenance Fees: One time 2% of capital</li>
+                    <a class="call-act2 pb-2" href="/auth/register?plans=ELITE FOREX-CFD PLAN">GET STARTED</a>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <h5 class="more my-3">COMMODITY-VEST PLANS</h5>
+
+    <div class="row mb-4">
+        <div class="col-lg-4">
+            <div class="plan-item">
+                <div class="plan-name my-0">Silver VEST Plan</div>
+                <ul>
+                    <li>Minimum Investment: $100</li>
+                    <li>Maximum Investment: $1000</li>
+                    <li>Return on Investment: 1.2% Daily</li>
+                    <li>Contract Duration: 24 Weeks</li>
+                    <li>Referral Commission: 5% on referred users' first deposits and 1.5% on subsequent.</li>
+                    <li class="mb-3">Maintenance Fees: One time 2% of capital</li>
+                    <a class="call-act2 pb-2" href="/auth/register?plans=SILVER VEST PLAN">GET STARTED</a>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="plan-item">
+                <div class="plan-name my-0">Gold VEST Plan</div>
+                <ul>
+                    <li>Minimum Investment: $1500</li>
+                    <li>Maximum Investment: $19000</li>
+                    <li>Return on Investment: 2.5% Daily</li>
+                    <li>Contract Duration: 12 Months (1 Year)</li>
+                    <li>Referral Commission: 5% on referred users' first deposits and 1.5% on subsequent.</li>
+                    <li class="mb-3">Maintenance Fees: One time 2% of capital</li>
+                    <a class="call-act2 pb-2" href="/auth/register?plans=GOLD VEST PLAN">GET STARTED</a>
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="plan-item">
+                <div class="plan-name my-0">Diamond VEST Plan</div>
+                <ul>
+                    <li>Minimum Investment: $20000</li>
+                    <li>Maximum Investment: $100000</li>
+                    <li>Return on Investment: 3.5% Daily</li>
+                    <li>Contract Duration: 12 Months (1 Year)</li>
+                    <li>Referral Commission: 5% on referred users' first deposits and 1.5% on subsequent.</li>
+                    <li class="mb-3">Maintenance Fees: One time 2% of capital</li>
+                    <a class="call-act2 pb-2" href="/auth/register?plans=DIAMOND VEST PLAN">GET STARTED</a>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <p style="font-size: .9rem; color:#1f0a0a; font-weight:600">Custom Plans can be created for individual and company
+        investments to suit your peculiar needs. <a href="/contact" class="more">Contact an expert now to advise you</a></p>
+</section>
+
+
+<section class="pastel p-5">
+    <div class="container text-center">
+        <h4>What BitMinex Investors think</h4>
+
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <video style="border: 1px solid black; border-radius: 10px; width:80%; height: 300px" controls>
+                    <source src="\clips\bitminex-testimonial.mp4" type="video/mp4">
+                    <source src="\clips\bitminex-testimonial.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="col-md-6">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
+                        <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <h5 class="testator-name">James Cabonerlo</h5>
+                            <img src="\images\5-stars.jpg" alt="..." class="pb-3">
+                            <p>Great app/website! I had been looking for something like this for a long time. You can
+                                start with little money and grow your way through or even go large at the first go and
+                                earn even larger.. win win. They have several investment packages and all the
+                                tools for a real investment experience.</p>
+                        </div>
+                        <div class="carousel-item">
+                            <h5 class="testator-name">Faruoq Al Musaila</h5>
+                            <img src="\images\4-stars.jpg" alt="..." class="pb-3">
+                            <p>Well my first experience is exiciting. The staff and live support they are supportable
+                                giving you tips, guides and lesson to improve your earnings. Thank you.</p>
+                        </div>
+                        <div class="carousel-item">
+                            <h5 class="testator-name">Cyndie Vasco</h5>
+                            <img src="\images\5-stars.jpg" alt="..." class="pb-3">
+                            <p>I have been with bit-minex.com now for 9 months and so far have absolutely no complaints.
+                                Their investment stream is great and very user friendly (I did have an issue at one
+                                point and
+                                my account manager sorted it asap). Their web based platform is excellent and very easy
+                                to use and news feeds are tailored to the individual. One issue i had is that the
+                                investments have limits and once sold out you will have to wait for more available open
+                                slots, this i learnt the hard way and closed
+                                trades i wanted to keep open as i accidentally did not buy early on two different
+                                occasions and missed out! Overall i'm very happy with the platform and service.</p>
+                        </div>
+                        <div class="carousel-item">
+                            <h5 class="testator-name">Pamela Gilead</h5>
+                            <img src="\images\3-stars.jpg" alt="..." class="pb-3">
+                            <p>Very good and intuitive. Could have more stocks. For example, $KR, $MAXR, $CHEF, $APT,
+                                $RUN, $CVNA, etc.</p>
+                        </div>
+                        <div class="carousel-item">
+                            <h5 class="testator-name">Nigel Phelan</h5>
+                            <img src="\images\5-stars.jpg" alt="..." class="pb-3">
+                            <p>If your looking for a professional and experienced traders. Look no further. Been with
+                                many stocks, crypto, trading and investmet companies. Now finally I've found BitMinex.
+                                Your money will always be
+                                safe for you to access anytime you feel and your interest is guaranteed, just watch it
+                                grow. 10 out of 10 for this company. Would highly
+                                recommend them.</p>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <p class="mt-4"><a href="/contact" class="more">Leave us a review</a></p>
+    </div>
+</section>
+
+
+<%- include('../partials/news.ejs'); %> 
+
+
+<%- include('../partials/footer.ejs'); %> 
+

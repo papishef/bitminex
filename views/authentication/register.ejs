@@ -1,0 +1,270 @@
+<%- include('../partials/header.ejs') %>
+
+<section class="register">
+    <div class="container-lg">
+
+        <div class="register-container">
+            <h1 class="text-center mb-5" style="color: aliceblue; font-weight: 700">Sign Up</h1>
+            <h4 class="text-center mb-4" style="color: aliceblue;">Why BitMinex?</h4>
+            <div class="row">
+                <div class="col-md-4 text-center" style="color: aliceblue;">
+                    <i class="fa fa-shield fa-3x mb-3" aria-hidden="true"></i>
+                    <div class="">
+                        <p>Secured by CySec and regulated by FSCS</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-center" style="color: aliceblue;">
+                    <i class="fa fa-check-circle-o fa-3x mb-3" aria-hidden="true"></i>
+                    <div class="">
+                        <p>No-Risk Investment in over 3000 markets, cryptocurrencies and commodities</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 text-center" style="color: aliceblue;">
+                    <i class="fa fa-globe fa-3x mb-3" aria-hidden="true"></i>
+                    <div class="">
+                        <p>High yield investment available to all (individuals & companies)</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <form id="reg-form" class="mt-5" action="/auth/register" method="POST" enctype="multipart/form-data">
+
+
+
+                <div class="col-12 mb-5">
+
+                    <div class="form-group text-center">
+                        <label for="plans" class="form-label">SELECT PREFERRED PLAN</label>
+                        <select class="form-select form-select-lg" id="plans" name="plans"
+                            aria-label="SELECT PREFERRED PLAN" required>
+                            <option value="">-- select investment plan --</option>
+
+                            <option value="LITE-MINER PLAN" <%= planName === "LITE-MINER PLAN" ? selected : '' %>>
+                                LITE-MINER PLAN ($300-$5,000 crypto-mining & investment plan)</option>
+                            <option value="STANDARD-MINER PLAN"
+                                <%= planName === "STANDARD-MINER PLAN" ? selected : '' %>>STANDARD-MINER PLAN
+                                ($5,500-$15,000 crypto-mining & investment plan)</option>
+                            <option value="PREMIUM-MINER PLAN" <%= planName === "PREMIUM-MINER PLAN" ? selected : '' %>>
+                                PREMIUM-MINER PLAN ($16,000-$50,000 crypto-mining & investment plan)</option>
+
+                            <option value="BEGINNER FOREX-CFD PLAN"
+                                <%= planName === "BEGINNER FOREX-CFD PLAN" ? selected : '' %>>BEGINNER FOREX-CFD PLAN
+                                ($100-$1,000 forex-stock-cfd)</option>
+                            <option value="ADVANCED FOREX-CFD PLAN"
+                                <%= planName === "ADVANCED FOREX-CFD PLAN" ? selected : '' %>>ADVANCED FOREX-CFD PLAN
+                                ($1,500-$19,000 forex-stock-cfd)</option>
+                            <option value="ELITE FOREX-CFD PLAN"
+                                <%= planName === "ELITE FOREX-CFD PLAN" ? selected : '' %>>ELITE FOREX-CFD PLAN
+                                ($20,000-$100,000 forex-stock-cfd)</option>
+
+                            <option value="SILVER VEST PLAN" <%= planName === "SILVER VEST PLAN" ? selected : '' %>>
+                                SILVER VEST PLAN ($100-$1,000 commodity investment)</option>
+                            <option value="GOLD VEST PLAN" <%= planName === "GOLD VEST PLAN" ? selected : '' %>>GOLD
+                                VEST PLAN ($1,500-$19,000 commodity investment)</option>
+                            <option value="DIAMOND VEST PLAN"
+                                <%= planName === "DIAMOND VEST PLAN" ? selected : '' %>>DIAMOND VEST PLAN
+                                ($20,000-$100,000 commodity investment)</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-2">
+                        <label for="email" class="form-label">Email address</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"
+                                    aria-hidden="true"></i></span>
+                            <input type="email" name="username" class="form-control" id="email"
+                                aria-describedby="email">
+
+
+                        </div>
+                        <div class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label for="confirmEmail" class="form-label">Confirm email</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"
+                                    aria-hidden="true"></i></span>
+                            <input type="email" name="confirmEmail" class="form-control" id="confirmEmail"
+                                aria-describedby="confirmEmail">
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6 mb-2">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon3"><i class="fa fa-key"
+                                    aria-hidden="true"></i></span>
+                            <input type="password" name="password" class="form-control" id="reg-password">
+                            <div class="input-group-text" id="toggleVisibility" onclick="toggleVisibility()" type="password" style="cursor: pointer;"><i class="fa fa-eye"
+                                    aria-hidden="true"></i></div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="confirmPassword" class="form-label">Confirm password</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon4"><i class="fa fa-key"
+                                    aria-hidden="true"></i></span>
+                            <input type="password" name="confirmPassword" class="form-control" id="confirmPassword">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-2">
+                    <label for="refEmail" class="form-label">Referrer email</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-addon5"><i class="fa fa-address-book"
+                                aria-hidden="true"></i></span>
+                        <input type="email" name="refEmail" class="form-control" id="refEmail">
+
+                    </div>
+                    <div class="form-text">Get 20% for referrals on referral investments </div>
+                </div>
+
+                <hr class="form-hr">
+
+                <h4 class="text-center mb-4" style="color: aliceblue;">KYC</h4>
+                <p class="text-center" style="color: aliceblue;">Kindly fill in KYC data to start earning seamlessly.
+                    This is required by regulation.</p>
+
+
+
+                <div class="row">
+
+                    <div class="col-sm-4 col-md-2 mb-2">
+
+                        <div class="form-group">
+                            <label for="title" class="form-label">Title</label>
+                            <select name="title" id="title" class="form-select" aria-label="Default select example">
+                                <option value="">-- Title --</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Ms">Ms</option>
+                                <option value="Dr.">Dr.</option>
+                                <option value="Prof.">Prof.</option>
+                                <option value="Rev.">Rev.</option>
+                                <option value="Other">Other</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5 mb-2">
+                        <label for="fName" class="form-label">First name</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon6"><i class="fa fa-address-card"
+                                    aria-hidden="true"></i></span>
+                            <input type="text" name="fName" class="form-control" id="fName">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5 mb-2">
+                        <label for="lName" class="form-label">Last name</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon7"><i class="fa fa-address-card"
+                                    aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" id="lName" name="lName">
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-4 col-md-3 mb-2">
+
+                        <label for="aptNo" class="form-label">Apt/Block/Flat no.</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="aptNo" name="aptNo">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-8 col-md-7 mb-2">
+                        <label for="street" class="form-label">Street & State/Province</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon6"><i class="fa fa-compass"
+                                    aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" id="street" name="street">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-4 col-md-2 mb-2">
+
+                        <div class="form-group">
+                            <label for="zip" class="form-label">Zip code</label>
+                            <input type="text" class="form-control" id="zip" name="zip">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-8 col-md-6 mb-2">
+                        <label for="phone" class="form-label">Phone</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon6"><i class="fa fa-phone"
+                                    aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" id="phone" name="phone">
+
+                        </div>
+
+                    </div>
+
+                    <%- include('../partials/country-list.ejs') %>
+
+                    <div class="col-6 mb-2">
+                        <label for="occupation" class="form-label">Occupation</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon6"><i class="fa fa-briefcase"
+                                    aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" id="occupation" name="occupation">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <label for="govt-id" class="form-label">Upload Gov't Issued ID</label>
+                        <input class="form-control" id="govtId" type="file" name="govtId">
+                    </div>
+
+                </div>
+
+                <div class="my-3 text-center" style="color: aliceblue;">
+                    <p>By creating an account, I accept <a href="/cookies#privacy" class="more">Privacy Policy</a></p>
+                    <p>Already have an account? <a href="/auth/login" class="more">Login</a></p>
+
+                </div>
+
+                <div class="text-center">
+                    <button id="regSubmit" type="submit" class="register-btn btn">SUBMIT REGISTRATION</button>
+                </div>
+
+
+            </form>
+        </div>
+
+    </div>
+</section>
+
+
+
+<%- include('../partials/footer.ejs'); %>

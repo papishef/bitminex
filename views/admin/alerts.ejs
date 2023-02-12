@@ -1,0 +1,30 @@
+<%- include('../partials/dash-header.ejs') %>
+
+<section class="dash-content">
+
+    <h4 class="dash-topic"> <%= pageDescription %> </h4>
+
+
+    <% foundUser.alerts.forEach(alert => { %>
+        <div class=<%= alert.sender === 'user' ? "user-alert" : "admin-alert" %> >
+            <%= alert.message %> 
+
+            <div class="form-text"><%= alert.date.toISOString().slice(0, 16) %> </div>
+        </div>
+    <% }) %>
+
+    <div class="alert-input">
+        <form action="/admin/alerts/<%= foundUser._id %> " method="post">
+            <div class="input-group">
+                <input type="text" name="message" class="form-control" placeholder="Enter message" required>
+                <input type="hidden" name="sender" value="user">
+                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Send Message</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+
+
+<%- include('../partials/dash-footer.ejs') %>

@@ -1,0 +1,85 @@
+<%- include('../partials/dash-header.ejs') %>
+
+<section class="dash-content">
+
+    <h4 class="dash-topic"> <%= pageDescription %> </h4>
+
+    <div class="settings-content">
+
+        <form action="/admin/complete-fiat/<%= foundUser._id %> " method="post">
+            <div class="row mb-2">
+
+            
+                <div class="warning mb-5">
+                    <h5>IMPORTANT NOTES******</h5>
+
+                    <ol>
+                        <li>All payments must be completed within 7 hours after submitting this form.</li>
+                        <li>Failure to meet up with Item (1) above might lead to termination of account and rejection of
+                            further applications since our investment queue is long and we try to service our loyal
+                            customers.</li>
+                        <li>We prioritise BTC payments over other forms of payments, this is so for ease of global
+                            payments.</li>
+                        <li>We also encourage Bank transfers as this would personify your investment with us since you
+                            get to talk to our helpdesk before final payment.</li>
+                        <li>Card payments are not supported in many parts of the world with government restrictions or
+                            trade bans.</li>
+                    </ol>
+                </div>
+
+
+                <div class="row mb-2">
+
+
+                    <div class="form-group col-6 col-md-3 mb-2">
+
+                        <label for="currencyList" class="form-label">Preferred currency</label>
+
+                        <%- include('../partials/currency-list.ejs') %>
+
+                    </div>
+                 
+
+                    <div class="form-group col-6 col-md-3 mb-2 order-md-3">
+
+                        <label for="paymentMethod" class="form-label">Payment method</label>
+
+                        <select class="form-select" id="paymentMethod" name="paymentMethod" aria-label="paymentMethod"
+                            required>
+
+                            <option value="BTC">BTC payment</option>
+                            <option value="Bank transfer">Bank transfer</option>
+                            <option value="Card payment">Card payment</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="col-12 col-md-6 mb-2">
+                        <label for="capital" class="form-label">Amount</label>
+                        <div class="input-group">
+                            <input type="number" name="capital" class="form-control" id="capital" required>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="text-center">
+                    <button id="fiatSubmit" type="submit" class="complete-invest-btn btn">Pay</button>
+                </div>
+
+        </form>
+
+    </div>
+
+
+</section>
+
+
+
+
+<%- include('../partials/dash-footer.ejs') %>

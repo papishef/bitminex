@@ -1,0 +1,86 @@
+<%- include('../partials/dash-header.ejs') %>
+
+<section class="dash-content">
+
+    <h4 class="dash-topic"><%= pageDescription %> </h4>
+
+    <div class="bank-account-wrapper">
+
+        <% if (foundUser.timer.sentBy === 'investment') { %>
+
+        <div class="chosen-info">
+            SELECTED PLAN: <%= foundUser.investments[foundUser.investments.length - 1].planName %> <br>
+            CAPITAL: <%= foundUser.investments[foundUser.investments.length - 1].currrency %>
+            <%= foundUser.investments[foundUser.investments.length - 1].capital %> <br>
+            MAINTENANCE CHARGE (2%): <%= foundUser.investments[foundUser.investments.length - 1].currrency %>
+            <%= maintenanceFee %> <br>
+
+            <h5 class="mt-4">TOTAL TO PAY:
+                <%= foundUser.investments[foundUser.investments.length - 1].currrency %>
+                <%= parseInt(maintenanceFee) + parseInt(foundUser.investments[foundUser.investments.length - 1].capital) %>
+            </h5>
+        </div>
+
+        <% } else if(foundUser.timer.sentBy === 'crypto-wallet') { %>
+
+        CAPITAL: <%= foundUser.cryptoWallet[foundUser.cryptoWallet.length - 1].walletCurrency %>
+        <%= foundUser.cryptoWallet[foundUser.cryptoWallet.length - 1].amount %> <br>
+        MAINTENANCE CHARGE (2%): <%= foundUser.cryptoWallet[foundUser.cryptoWallet.length - 1].walletCurrency %>
+        <%= maintenanceFee %> <br>
+
+        <h5 class="mt-4">TOTAL TO PAY:
+            <%= foundUser.cryptoWallet[foundUser.cryptoWallet.length - 1].walletCurrency %>
+            <%= parseInt(maintenanceFee) + parseInt(foundUser.cryptoWallet[foundUser.cryptoWallet.length - 1].amount) %>
+        </h5>
+
+        <% } else { %>
+
+        CAPITAL: <%= foundUser.fiatWallet[foundUser.fiatWallet.length - 1].walletCurrency %>
+        <%= foundUser.fiatWallet[foundUser.fiatWallet.length - 1].amount %> <br>
+        MAINTENANCE CHARGE (2%): <%= foundUser.fiatWallet[foundUser.fiatWallet.length - 1].walletCurrency %>
+        <%= maintenanceFee %> <br>
+
+        <h5 class="mt-4">TOTAL TO PAY:
+            <%= foundUser.fiatWallet[foundUser.fiatWallet.length - 1].walletCurrency %>
+            <%= parseInt(maintenanceFee) + parseInt(foundUser.fiatWallet[foundUser.fiatWallet.length - 1].amount) %>
+        </h5>
+        
+        <% } %>
+
+        <div id="clockdiv" class="timer my-5">
+
+            <span class="hours"></span> :
+            <span class="minutes"></span> :
+            <span class="seconds"></span>
+
+        </div>
+
+
+        <div class="my-4 text-center">
+            Your nearest BitmineX exchange agent is <%= foundUser.paymentBank.accountName %> Please complete payment to
+            details below.
+        </div>
+
+
+        <div class="bank-account-main">
+            <span>Bank Name: </span> <span class="right"><%= foundUser.paymentBank.bankName %></span> <br>
+            <span>Account Name: </span> <span class="right"><%= foundUser.paymentBank.accountName %></span><br>
+            <span>Account Number: </span> <span class="right"><%= foundUser.paymentBank.accountNumber %></span><br>
+            <span>Swift/IBAN Code: </span> <span class="right"><%= foundUser.paymentBank.swift %></span><br>
+            <span>Bank Address: </span> <span class="right"><%= foundUser.paymentBank.bankAddress %></span>
+
+        </div>
+
+    </div>
+
+    <div class="settings-content">
+
+
+        <div class="text-danger mt-1 text-center">
+            Please send an email to helpdesk@bit-minex.com with your Bank transaction receipt after completing payment to
+            enable us process your payment faster.
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/dash-footer.ejs') %>

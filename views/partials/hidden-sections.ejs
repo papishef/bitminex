@@ -1,0 +1,376 @@
+<!-- WHY CHOOSE BITMINEX -->
+<section id="why-us" class="">
+
+    <div class="container-lg mt-5 p-2 text-center">
+        <h4>Why Choose BitMinex?</h4>
+        <p class="my-4">We offer one-click investment experience with 3,000+ world-renowned market commodities.</p>
+
+        <div class="row">
+            <div class="col-md-4 why-us">
+                <p>High privacy & security standards: Financial Conduct Authority & CySEC regulated</p>
+                <p>We have some of the most experienced traders and miners in the world across our data centers.</p>
+                <p>High capacity modern cryptocurrency mining hardware to ensure efficiency, Return on Investment for
+                    all
+                    our investors</p>
+                <p>Strategic portfolio for diversified risk management</p>
+                <p>All the latest economic and market news</p>
+
+                <a href="/products" class="btn call-act2 mt-2">
+                    <h5>Start Growing Now</h5>
+                </a>
+            </div>
+
+            <div class="col-md-8 currency-indices">
+                <table>
+                    <tr>
+                        <th id="most-traded-btn">Most traded</th>
+                        <th id="commodities-btn">Commodities</th>
+                        <th id="forex-btn">Forex</th>
+                        <th id="crypto-btn">Cryptocurrencies</th>
+                        <th id="stocks-btn">Stocks</th>
+
+                    </tr>
+                </table>
+                <img src="\images\graph1.JPG" alt="" width="100%" height="100px" oncontextmenu="return false">
+
+                <table class="table" id="most-traded">
+                    <tr class="head-row">
+                        <td>Name</td>
+                        <td>Buy</td>
+                        <td>Sell</td>
+                        <td>Change%</td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">Oil - Crude</td>
+                        <td>Buy</td>
+                        <td>Sell</td>
+                        <td>Change%</td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">BTC/USD</td>
+                        <td><%= btcPrice %></td>
+                        <td><%= btcPrice %></td>
+                        <td><span class=<%= btcPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= btcPriceChangePct %>%</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">Gold</td>
+                        <td> <%= gold %> </td>
+                        <td> <%= gold %> </td>
+                        <td> <%= gold %> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">TSLA</td>
+                        <td> <%= tsla.ask %> </td>
+                        <td> <%= tsla.bid %> </td>
+                        <td><span
+                                class=<%- tsla.regularMarketChangePercent.toString()[0] == '-' ? "rate-loss" : "rate-gain" %>>
+                                <%= tsla.regularMarketChangePercent %>%</span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">GBP/USD</td>
+                        <td> <%= gbp_usd.rate %> </td>
+                        <td> <%= gbp_usd.rate %> </td>
+                        <td><span class=<%= //gbp_usd.pctChange[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= //gbp_usd.pctChange %> </span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">Silver</td>
+                        <td> <%= silver %> </td>
+                        <td> <%= silver %> </td>
+                        <td> <%= silver %> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">ETH/USD</td>
+                        <td><%= ethPrice %></td>
+                        <td><%= ethPrice %></td>
+                        <td><span class=<%= ethPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= ethPriceChangePct %></span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+                </table>
+
+
+                <table class="table" id="commodities">
+                    <tr class="head-row">
+                        <td>Name</td>
+                        <td>Buy</td>
+                        <td>Sell</td>
+                        <td>Spread</td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">Gold</td>
+                        <td> <%= gold %> </td>
+                        <td> <%= gold %> </td>
+                        <td> <%= gold %> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">Silver</td>
+                        <td> <%= silver %> </td>
+                        <td> <%= silver %> </td>
+                        <td> <%= silver %> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">Palladium</td>
+                        <td> <%= palladium %> </td>
+                        <td> <%= palladium %> </td>
+                        <td> <%= palladium %> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">Oil - Crude</td>
+                        <td>Buy</td>
+                        <td>Sell</td>
+                        <td>Change%</td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                </table>
+
+
+                <table class="table" id="forex">
+                    <tr class="head-row">
+                        <td>Name</td>
+                        <td>Buy</td>
+                        <td>Sell</td>
+                        <td>Change%</td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">GBP/USD</td>
+                        <td> <%= gbp_usd.rate %> </td>
+                        <td> <%= gbp_usd.rate %> </td>
+                        <td><span class=<%= //gbp_usd.pctChange[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= //gbp_usd.pctChange %> </span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">USD/CNY</td>
+                        <td> <%= usd_cny.rate %> </td>
+                        <td> <%= usd_cny.rate %> </td>
+                        <td><span class=<%=  //cny_usd.pctChange[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= //cny_usd.pctChange %> %</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">EUR/GBP</td>
+                        <td> <%= eur_gbp.rate %> </td>
+                        <td> <%= eur_gbp.rate %> </td>
+                        <td><span class=<%=  //eur_gbp.pctChange[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= //eur_gbp.pctChange %> %</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">USD/CHF</td>
+                        <td> <%= usd_chf.rate %> </td>
+                        <td> <%= usd_chf.rate %> </td>
+                        <td><span class=<%=  //chf_usd.pctChange[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= //chf_usd.pctChange %> %</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">USD/JPY</td>
+                        <td> <%= usd_jpy.rate %> </td>
+                        <td> <%= usd_jpy.rate %> </td>
+                        <td><span class=<%=  //jpy_usd.pctChange[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= //jpy_usd.pctChange %> %</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;"> EUR/USD</td>
+                        <td> <%= eur_usd.rate %> </td>
+                        <td> <%= eur_usd.rate %> </td>
+                        <td><span class=<%=  //eur_usd.pctChange[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= //eur_usd.pctChange %> %</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">USD/NZD</td>
+                        <td> <%= usd_nzd.rate %> </td>
+                        <td> <%= usd_nzd.rate %> </td>
+                        <td><span class=<%=  //cny_eur.pctChange[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= //cny_eur.pctChange %> %</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+                </table>
+
+
+                <table class="table" id="crypto">
+                    <tr class="head-row">
+                        <td>Name</td>
+                        <td>Buy</td>
+                        <td>Sell</td>
+                        <td>Change%</td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">BTC/USD</td>
+                        <td> <%= btcPrice %> </td>
+                        <td> <%= btcPrice %> </td>
+                        <td><span class=<%= btcPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= btcPriceChangePct %>%</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">ETH/USD</td>
+                        <td><%= ethPrice %></td>
+                        <td><%= ethPrice %></td>
+                        <td><span class=<%= ethPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= ethPriceChangePct %>%</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">LTC/USD</td>
+                        <td><%= ltcPrice %></td>
+                        <td><%= ltcPrice %></td>
+                        <td><span class=<%= ltcPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= ltcPriceChangePct %>%</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">BCH/USD</td>
+                        <td><%= bchPrice %></td>
+                        <td><%= bchPrice %></td>
+                        <td><span class=<%= bchPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= bchPriceChangePct %>%</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">USDT/USD</td>
+                        <td><%= usdtPrice %></td>
+                        <td><%= usdtPrice %></td>
+                        <td><span class=<%= usdtPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= usdtPriceChangePct %>%</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">BNB/USD</td>
+                        <td><%= bnbPrice %></td>
+                        <td><%= bnbPrice %></td>
+                        <td><span class=<%= bnbPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= bnbPriceChangePct %>%</span> </td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: 600;">XRP/USD</td>
+                        <td><%= xrpPrice %></td>
+                        <td>Sell</td>
+                        <td><span class=<%= xrpPriceChangePct[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= xrpPriceChangePct %>%</span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+                </table>
+
+                <table class="table" id="stocks">
+                    <tr class="head-row">
+                        <td>Name</td>
+                        <td>Buy</td>
+                        <td>Sell</td>
+                        <td>Change%</td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">APPL/USD</td>
+                        <td> <%= appl.ask %> </td>
+                        <td> <%= appl.bid %> </td>
+                        <td><span
+                                class=<%= appl.regularMarketChangePercent.toString()[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= appl.regularMarketChangePercent %>%</span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">TSLA/USD</td>
+                        <td> <%= tsla.ask %> </td>
+                        <td> <%= tsla.bid %> </td>
+                        <td><span
+                                class=<%- tsla.regularMarketChangePercent.toString()[0] == '-' ? "rate-loss" : "rate-gain" %>>
+                                <%= tsla.regularMarketChangePercent %>%</span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">GOOGL/USD</td>
+                        <td> <%= googl.ask %> </td>
+                        <td> <%= googl.bid %> </td>
+                        <td><span
+                                class=<%= googl.regularMarketChangePercent.toString()[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= googl.regularMarketChangePercent %>%</span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">AMZN/USD</td>
+                        <td> <%= amzn.ask %> </td>
+                        <td> <%= amzn.bid %> </td>
+                        <td><span
+                                class=<%= amzn.regularMarketChangePercent.toString()[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= amzn.regularMarketChangePercent %>%</span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">MSFT/USD</td>
+                        <td> <%= msft.ask %> </td>
+                        <td> <%= msft.bid %> </td>
+                        <td><span
+                                class=<%= msft.regularMarketChangePercent.toString()[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= msft.regularMarketChangePercent %>%</span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">ADBE/USD</td>
+                        <td> <%= adbe.ask %> </td>
+                        <td> <%= adbe.bid %> </td>
+                        <td><span
+                                class=<%= adbe.regularMarketChangePercent.toString()[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= adbe.regularMarketChangePercent %>%</span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: 600;">EBAY/USD</td>
+                        <td> <%= ebay.ask %> </td>
+                        <td> <%= ebay.bid %> </td>
+                        <td><span
+                                class=<%= ebay.regularMarketChangePercent.toString()[0] == "-" ? "rate-loss" : "rate-gain" %>>
+                                <%= ebay.regularMarketChangePercent %>%</span></td>
+                        <td><a href="/auth/register" class="td-invest-btn">Invest</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+</section>

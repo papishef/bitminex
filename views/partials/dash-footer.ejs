@@ -1,0 +1,312 @@
+<section id="footer" class="container-fluid footer  text-center">
+
+    <div class="row">
+
+        <div class="col-md-5 col-12">
+            <a href="/#about-us" target="_blank">About</a>
+            <a href="/products" target="_blank">Products</a>
+            <a href="/contact" target="_blank">Contact</a>
+            <a href="/faqs" target="_blank">FAQs</a>
+            <a href="/#news" target="_blank">Press</a>
+        </div>
+
+        <div class="col-md-3">
+            &copy; Bit-Minex.com <script>
+                document.write(new Date().getFullYear());
+            </script>
+        </div>
+
+        <div class="col-md-3">
+            <a href="//facebook.com" target="_blank"><i class="fab fa-2x mx-2 fa-facebook"></i></a>
+            <a href="//twitter.com" target="_blank"><i class="fab fa-2x mx-2 fa-twitter"></i></a>
+            <a href="//linkedin.com" target="_blank"><i class="fab fa-2x mx-2 fa-linkedin"></i></a>
+        </div>
+
+    </div>
+</section>
+
+<!-- BEGINNING OF FOOTER  -->
+
+<!-- jS (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
+</script>
+
+<!-- jQuery CDN  -->
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+
+<!-- JQUERY VALIDATOR CDN -->
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/additional-methods.js"></script>
+
+
+
+<script>
+    function toggleMenu() {
+        const navigation = document.querySelector('.navigation');
+        const toggle = document.querySelector('.toggle');
+        navigation.classList.toggle('active');
+        toggle.classList.toggle('active');
+
+    }
+
+    function clickBody() {
+        //click body to close active navigation menu
+        const navigation = document.querySelector('.navigation');
+        const toggle = document.querySelector('.toggle');
+        navigation.classList.remove('active')
+        toggle.classList.remove('active');
+    }
+
+    $('section').click(function () {
+        clickBody()
+    })
+
+    $('#withdraw').click(function() {
+        $('#withdrawal-pop-up').fadeIn(500);
+    })
+
+    $('#close').click(function() {
+        $('#withdrawal-pop-up').fadeOut(500);
+    })
+
+
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        alert("Address copied");
+    }
+
+
+    // Set the date we're counting down to
+    const countDownDate = new Date(JSON.stringify('<%= foundUser.timer.time %> ')).getTime() + 25200000;
+
+    // Update the count down every 1 second
+    const updateClock = setInterval(function () {
+        // Get today's date and time
+        const now = new Date().getTime();
+        // Find the distance between now and the count down date
+        const distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        const clock = document.getElementById("clockdiv");
+        const hoursSpan = clock.querySelector('.hours');
+        const minutesSpan = clock.querySelector('.minutes');
+        const secondsSpan = clock.querySelector('.seconds');
+
+        hoursSpan.innerHTML = ('0' + hours).slice(-2);
+        minutesSpan.innerHTML = ('0' + minutes).slice(-2);
+        secondsSpan.innerHTML = ('0' + seconds).slice(-2);
+
+        // If the count down is over, write some text 
+        if (distance < 0) {
+            clearInterval(updateClock);
+            document.getElementById("clockdiv").innerHTML = "<span class='text-danger'>EXPIRED</span>";
+        }
+    }, 1000);
+
+
+
+    //validate user setting forms
+    $('#changePassword').validate({
+        rules: {
+            password: {
+                required: true,
+                minlength: 8
+            },
+            newPassword: {
+                required: true,
+                minlength: 8
+            },
+            confirmPassword: {
+                required: true,
+                equalTo: '#newPassword'
+            },
+
+        },
+        messages: {
+            password: {
+                required: 'Please complete this field',
+                minlength: 'Minimum of 8 characters'
+            },
+            newPassword: {
+                required: 'Please complete this field',
+                minlength: 'Minimum of 8 characters'
+            },
+            confirmPassword: {
+                required: 'Please complete this field',
+                equalTo: 'Password does not match with confirmation'
+            },
+        }
+
+    })
+
+
+    //validate KYC setting forms
+    $('#kyc-form').validate({
+        rules: {
+            fName: {
+                required: true
+            },
+            lName: {
+                required: true
+            },
+            aptNo: {
+                required: true
+            },
+            street: {
+                required: true
+            },
+            zip: {
+                required: true
+            },
+            phone: {
+                required: true
+            },
+            country: {
+                required: true
+            },
+            occupation: {
+                required: true
+            },
+
+        },
+        messages: {
+            fName: {
+                required: "Required field"
+            },
+            lName: {
+                required: "Required field"
+            },
+            aptNo: {
+                required: "Required field"
+            },
+            street: {
+                required: "Required field"
+            },
+            zip: {
+                required: "Required field"
+            },
+            phone: {
+                required: "Required field"
+            },
+            country: {
+                required: "Required field"
+            },
+            occupation: {
+                required: "Required field"
+            },
+        }
+
+    })
+
+
+
+    //validate Withdrawal setting form
+    $('#withdrawal').validate({
+        rules: {
+            bankName: {
+                required: true
+            },
+            accountName: {
+                required: true
+            },
+            accountNumber: {
+                required: true
+            },
+            swiftIban: {
+                required: true
+            },
+            bankAddress: {
+                required: true
+            }
+
+        },
+        messages: {
+            bankName: {
+                required: "Required field"
+            },
+            accountName: {
+                required: "Required field"
+            },
+            accountNumber: {
+                required: "Required field"
+            },
+            swiftIban: {
+                required: "Required field"
+            },
+            bankAddress: {
+                required: "Required field"
+            }
+        }
+
+    })
+
+
+
+    //validate Card setting form
+    $('#card-form').validate({
+        rules: {
+            cardNumber: {
+                required: true,
+                minlength: 16
+            },
+            cardName: {
+                required: true
+            },
+            cvv: {
+                required: true
+            },
+            cardExpiry: {
+                required: true
+            },
+            cardPhoneNumber: {
+                required: true
+            },
+            cardZip: {
+                required: true
+            },
+            address: {
+                required: true
+            }
+
+        },
+        messages: {
+            cardNumber: {
+                required: "Required field",
+                minlength: 'Not a valid card number'
+            },
+            cardName: {
+                required: "Required field"
+            },
+            cvv: {
+                required: "Required field"
+            },
+            cardExpiry: {
+                required: "Required field"
+            },
+            cardPhoneNumber: {
+                required: "Required field"
+            },
+            cardZip: {
+                required: "Required field"
+            },
+            address: {
+                required: "Required field"
+            },
+        }
+
+    })
+</script>
+</body>
+
+</html>
